@@ -13,6 +13,27 @@ from bs4 import BeautifulSoup, Tag
 from core_utils.article.article import Article
 from core_utils.config_dto import ConfigDTO
 
+class IncorrectSeedURLError(Exception):
+    'seed URL does not match standard pattern "https?://(www.)?"'
+
+class NumberOfArticlesOutOfRangeError(Exception):
+    'total number of articles is out of range (from 1 to 150)'
+
+class IncorrectNumberOfArticlesError(Exception):
+    'total number of articles to parse is not integer or less than 0'
+
+class IncorrectHeadersError(Exception):
+    'headers are not in a form of dictionary'
+
+class IncorrectEncodingError(Exception):
+    'encoding must be specified as a string'
+
+class IncorrectTimeoutError(Exception):
+    'timeout value must be a positive integer less than 60'
+
+class IncorrectVerifyError(Exception):
+    'verify certificate and headless mode values must either be True or False'
+
 
 class Config:
     """
