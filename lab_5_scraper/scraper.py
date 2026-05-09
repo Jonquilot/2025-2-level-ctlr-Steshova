@@ -6,7 +6,6 @@ Crawler implementation.
 import datetime
 import json
 import pathlib
-import re
 
 import requests
 from bs4 import BeautifulSoup, Tag
@@ -29,6 +28,7 @@ class Config:
         """
 
         self.path_to_config = path_to_config
+        self.config_content = self._extract_config_content()
 
     def _extract_config_content(self) -> ConfigDTO:
         """
@@ -37,9 +37,10 @@ class Config:
         Returns:
             ConfigDTO: Config values
         """
+
         with open (self.path_to_config, 'r', encoding='utf-8') as file:
             config_data = json.load(file)
-        return ConfigDTO(*config_data)
+        return ConfigDTO(**config_data)
 
     def _validate_config_content(self) -> None:
         """
