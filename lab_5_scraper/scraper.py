@@ -51,6 +51,7 @@ class Config:
 
         self.path_to_config = path_to_config
         self.config_content = self._extract_config_content()
+        self._validate_config_content()
 
     def _extract_config_content(self) -> ConfigDTO:
         """
