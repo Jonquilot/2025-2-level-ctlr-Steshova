@@ -7,6 +7,9 @@ import datetime
 import json
 import pathlib
 import re
+import shutil
+import time
+import random
 
 import requests
 from bs4 import BeautifulSoup, Tag
@@ -166,6 +169,14 @@ def make_request(url: str, config: Config) -> requests.models.Response:
     Returns:
         requests.models.Response: A response from a request
     """
+    time.sleep(random.uniform(0.5, 3))
+    response = requests.get(
+        url = url,
+        headers = config.get_headers(),
+        timeout = config.get_timeout(),
+        verify = config.get_verify_certificate()
+    )
+    return response
 
 
 class Crawler:
@@ -294,6 +305,11 @@ def prepare_environment(base_path: pathlib.Path | str) -> None:
     Args:
         base_path (pathlib.Path | str): Path where articles stores
     """
+
+    path = pathlib.Path(base_path)
+    if path.exists():
+        shutil.rmtree(path)
+    path.mkdir(parents=True)
 
 
 def main() -> None:
