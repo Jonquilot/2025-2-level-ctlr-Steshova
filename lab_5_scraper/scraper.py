@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup, Tag
 
 from core_utils.article.article import Article
 from core_utils.config_dto import ConfigDTO
+from core_utils.constants import ASSETS_PATH, CRAWLER_CONFIG_PATH
 
 class IncorrectSeedURLError(Exception):
     'seed URL does not match standard pattern "https?://(www.)?"'
@@ -316,6 +317,8 @@ def main() -> None:
     """
     Entrypoint for scraper module.
     """
+    configuration = Config(CRAWLER_CONFIG_PATH)
+    prepare_environment(ASSETS_PATH)
 
 
 if __name__ == "__main__":
