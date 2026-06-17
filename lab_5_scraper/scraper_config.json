@@ -2,6 +2,7 @@
     "seed_urls": [
         "https://burkin.rusf.ru/index.htm",
         "https://burkin.rusf.ru/visitka/index.htm",
+        "https://burkin.rusf.ru/books/index.htm",
         "https://burkin.rusf.ru/interv/index.htm",
         "https://burkin.rusf.ru/music/index.htm",
         "https://burkin.rusf.ru/projekt/index.htm"
@@ -9,9 +10,9 @@
     "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     },
-    "total_articles_to_find_and_parse": 11,
+    "total_articles_to_find_and_parse": 50,
     "encoding": "utf-8",
-    "timeout": 10,
+    "timeout": 19,
     "should_verify_certificate": true,
     "headless_mode": true
 }
